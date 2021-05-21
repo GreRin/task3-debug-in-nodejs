@@ -6,11 +6,14 @@ const game = require('./controllers/gamecontroller');
 
 
 db.sync().then(() => {
-    app.listen(function() {
+    app.listen(4000,function() {
         console.log("App is listening on 4000");
     })
 }).catch(err=>console.log(err));
-app.use(require('body-parser'));
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
 app.use('/api/auth', user);
 app.use(require('./middleware/validate-session'))
 app.use('/api/game', game);
