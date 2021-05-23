@@ -11,7 +11,7 @@ const User = (sequelize, DataTypes) => {
         },
 
         passwordHash: {
-            type: DataTypes.STRING,
+            type: DataTypes.JSON,
             allowNull: false
         },
 
